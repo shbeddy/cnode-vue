@@ -15,7 +15,6 @@
 import Header from './views/layout/Header';
 import Content from './views/layout/Content';
 import Footer from './views/layout/Footer';
-// import {Header, Content, Footer} from 'iview'
 
 export default {
   name: 'index',

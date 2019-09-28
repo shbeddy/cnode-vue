@@ -6,32 +6,59 @@
           <Avatar :src="item.author.avatar_url" />
         </div>
         <div class="title">
-          <h3><router-link :to="`/details/${item.id}`">{{item.title}}</router-link></h3>
+          <h3><TxtTag :item="item"></TxtTag><router-link :to="`/details/${item.id}`">{{item.title}}</router-link></h3>
           <span><router-link :to="`/user/${item.author_id}`">{{item.author.loginname}}</router-link></span>
           <span :style="{marginLeft:'10px'}">{{item.create_at.split('T')[0]}}</span>
         </div>
       </li>
     </ul>
-    <Page :total="100" :page-size='20' />
+    <Page :total="200" :page-size='20' @on-change="handlePage" />
   </div>
 
 </template>
 
 <script>
-  import data from './data'
+  // import data from './data'
+  import TxtTag from '../../components/TxtTag'
   export default {
     name: 'index',
     data(){
       return {
-        list: data.data
+        list: [],
+        pageNum: 1,
+        pageSize: 20,
       }
     },
+    components:{
+      TxtTag
+    },
+    methods:{
+      handlePage(value){
+        this.pageNum = value
+        this.getList()
+      },
+      getList: function(){
+        this.axios
+        .get(`https://cnodejs.org/api/v1/topics?page=${this.pageNum}&tab=${this.tab}&limit=${this.pageSize}`)
+        .then(res=>{this.list = res.data.data})
+        .catch(err=>console.log(err))
+      },
+      
+    },
+    props:["tab"],
     created(){
-      console.log(this.list);
+      
+      this.getList()
+
+      
+    },
+    watch:{
+      'tab':function(to,from){
+        this.getList()
+      
+      }
     }
-    // computed: {
-      //   list: data.data
-    // }
+    
   }
 </script>
 

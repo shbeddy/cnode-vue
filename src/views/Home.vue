@@ -1,39 +1,56 @@
 <template>
   <Row>
     <Col span="6">
-      <Menu active-name="1" theme="light" class="art-nav">
-        <MenuItem name="1">
-            <router-link to="/home/index">全部</router-link>
+      <Menu :active-name="this.tab" theme="light" class="art-nav" @on-select="handleTab">
+        <MenuItem name="all">
+            全部
         </MenuItem>
-        <MenuItem name="2">
-            <router-link to="/home/good">精华</router-link>
+        <MenuItem name="good">
+            精华
         </MenuItem>
-        <MenuItem name="3">
-            <router-link to="/home/share">分享</router-link>
+        <MenuItem name="share">
+            分享
         </MenuItem>
-        <MenuItem name="4">
-            <router-link to="/home/ask">问答</router-link>
+        <MenuItem name="ask">
+            问答
         </MenuItem>
-        <MenuItem name="5">
-            <router-link to="/home/job">招聘</router-link>
+        <MenuItem name="job">
+            招聘
         </MenuItem>
-        <MenuItem name="6">
-            <router-link to="/home/dev">测试</router-link>
+        <MenuItem name="dev">
+            测试
         </MenuItem>
       </Menu>
     </Col>
     <Col span="18">
-        <Index></Index>
+        <!-- <router-view /> -->
+        <Index :tab="this.tab"></Index>
     </Col>
   </Row>
 </template>
 
 <script>
-import Index from './Index/index'
+import Index from './Index'
 export default {
+    name: 'home',
+    methods:{
+        handleTab(name){
+            this.tab = name
+        }
+    },
+    data(){
+        return {
+            tab: 'all'
+        }
+    },
     components: {
         Index
-    }
+    },
+    created(){
+        // this.tab = this.$route.params.id
+        // console.log(this.tab);
+    },
+    watch:{}
 };
 </script>
 
@@ -42,12 +59,12 @@ export default {
         width: 100%!important;
         text-align: center;
         li.ivu-menu-item{
-            padding: 0;
+            // padding: 0;
         }
-        a{
-            display: block;
-            width: 100%;
-            line-height: 48px;
-        }
+        // a{
+        //     display: block;
+        //     width: 100%;
+        //     line-height: 48px;
+        // }
     }
 </style>

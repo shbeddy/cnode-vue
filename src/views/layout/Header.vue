@@ -6,8 +6,7 @@
         <div class="layout-nav">
             <MenuItem name="1">
                 <Icon type="ios-navigate"></Icon>
-                
-                <router-link to="/home/index">首页</router-link>
+                <router-link to="/home">首页</router-link>
             </MenuItem>
             <MenuItem name="2">
                 <Icon type="ios-keypad"></Icon>

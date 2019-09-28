@@ -13,24 +13,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/home/index'
+      redirect: '/home'
     },
     {
-      path: '/home/:id',
+      path: '/home',
       name: 'home',
-      component: Home,
-      // children: [
-      //   {
-      //     path: '',
-      //     name: 'index',
-      //     component: Index,
-      //   },
-        // {
-        //   path: '/good',
-        //   name: 'good',
-        //   component: Good,
-        // },
-      // ]
+      component: Home
     },
     {
       path: '/details/:id',

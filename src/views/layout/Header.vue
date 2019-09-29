@@ -1,23 +1,26 @@
 <template>
-    <Menu mode="horizontal" theme="dark" active-name="1">
-        <div class="layout-logo">
-            <img src="../../assets/cnodejs_light.svg" />
-        </div>
-        <div class="layout-nav">
-            <MenuItem name="1">
-                <Icon type="ios-navigate"></Icon>
-                <router-link to="/home">首页</router-link>
-            </MenuItem>
-            <MenuItem name="2">
-                <Icon type="ios-keypad"></Icon>
-                <router-link to="/book">教程</router-link>
-            </MenuItem>
-            <MenuItem name="3">
-                <Icon type="ios-analytics"></Icon>
-                <router-link to="/about">关于</router-link>
-            </MenuItem>
-        </div>
-    </Menu>
+    <div class="h-nav">
+        <Menu mode="horizontal" theme="dark" active-name="1">
+            <div class="layout-logo">
+                <img src="../../assets/cnodejs_light.svg" />
+            </div>
+            <div class="layout-nav">
+                <MenuItem name="1">
+                    <Icon type="ios-navigate"></Icon>
+                    <router-link to="/home">首页</router-link>
+                </MenuItem>
+                <MenuItem name="2">
+                    <Icon type="ios-keypad"></Icon>
+                    <router-link to="/book">教程</router-link>
+                </MenuItem>
+                <MenuItem name="3">
+                    <Icon type="ios-analytics"></Icon>
+                    <router-link to="/about">关于</router-link>
+                </MenuItem>
+            </div>
+        </Menu>
+
+    </div>
     
 </template>
    
@@ -28,7 +31,16 @@
     }
 </script>
 
-<style>
+<style lang="less">
+    .h-nav{
+        // display: flex;
+        background-color: #515a6e;
+        z-index: 999;
+        .ivu-menu{
+            width: 980px;
+            margin: 0 auto;
+        }
+    }
     .layout-logo{
         width: 200px;
         height: 60px;

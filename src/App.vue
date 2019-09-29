@@ -4,7 +4,8 @@
             <Header :style="{position: 'fixed', width: '100%'}">
                
             </Header>
-            <Content :style="{margin: '88px 20px 0', background: '#fff', minHeight: '500px'}">
+            <Content :style="{width: '980px', margin: '88px auto 0', minHeight: '500px'}">
+
                 <router-view/>
             </Content>
             <Footer class="layout-footer-center">2011-2016 &copy; TalkingData</Footer>
@@ -29,5 +30,13 @@ export default {
 <style lang="less">
   ul{
     list-style: none;
+  }
+  // .layout{
+  //   width: 980px;
+  //   margin: 0 auto;
+  // }
+  .content-wrap{
+    width: 980px;
+    margin: 0 auto;
   }
 </style>

@@ -7,7 +7,7 @@
         </div>
         <div class="title">
           <h3><TxtTag :item="item"></TxtTag><router-link :to="`/details/${item.id}`">{{item.title}}</router-link></h3>
-          <span><router-link :to="`/user/${item.author_id}`">{{item.author.loginname}}</router-link></span>
+          <span><router-link :to="`/user/${item.author.loginname}`">{{item.author.loginname}}</router-link></span>
           <span :style="{marginLeft:'10px'}">{{item.create_at.split('T')[0]}}</span>
         </div>
       </li>

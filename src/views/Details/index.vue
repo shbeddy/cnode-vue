@@ -4,13 +4,13 @@
             <div class="title" slot="title">
                 <h3>{{res.title}}</h3>
                 <router-link :to="`/user/${res.author.loginname}`">{{res.author.loginname}}</router-link>
-                <span :style="{marginLeft:'10px'}">{{res.create_at.split('T')[0]}}</span>
+                <span :style="{marginLeft:'10px'}">{{res.create_at?res.create_at.split('T')[0]:""}}</span>
             </div>
             <div v-html="this.res.content"></div>
         </Card>
         <Card dis-hover :style="{marginTop:'15px'}">
             <div slot="title">
-                <p>{{res.replies.length}}回复</p>
+                <p>{{res.replies?res.replies.length:""}}回复</p>
             </div>
             <div class="replie-list">
                 <ul>
@@ -21,10 +21,10 @@
                         <div class="replie">
                             <div class="title">
                                 <router-link :to="`/user/${item.author.loginname}`">{{item.author.loginname}}</router-link>
-                                <span :style="{marginLeft:'10px'}">{{item.create_at.split('T')[0]}}</span>
-                                <span class="ups" v-if="item.ups.length">
+                                <span :style="{marginLeft:'10px'}">{{item.create_at?item.create_at.split('T')[0]:""}}</span>
+                                <span class="ups" v-if="item.ups?item.ups.length:0">
                                     赞
-                                    <span>{{item.ups.length}}</span>
+                                    <span>{{item.ups?item.ups.length:0}}</span>
                                 </span>
                             </div>
                             <p v-html="item.content"></p>
@@ -43,7 +43,11 @@ export default {
     data(){
         return {
             artId: '',
-            res: {}
+            res: {
+                author: {
+                    loginname: ''
+                }
+            }
         }
     },
     created(){

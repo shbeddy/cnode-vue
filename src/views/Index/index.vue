@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ul >
+  <div class="art-list">
+    <ul class="art-list">
       <li v-for="item in this.list" :key="item.id" class="art-item">
         <div class="avatar">
           <Avatar :src="item.author.avatar_url" />
@@ -43,36 +43,34 @@
         .then(res=>{this.list = res.data.data})
         .catch(err=>console.log(err))
       },
-      
     },
     props:["tab"],
     created(){
-      
       this.getList()
-
-      
     },
     watch:{
       'tab':function(to,from){
         this.getList()
-      
       }
     }
-    
   }
 </script>
 
 <style lang='less'>
-  .art-item{
-    padding: 10px 20px;
-    margin: 0 10px;
-    border-bottom: 1px solid #eee;
-    .avatar{
-      float: left;
-      width: 50px;
-    }
-    .title{
-      margin-left: 30px;
+  .art-list{
+    margin-bottom: 15px;
+    .art-item{
+      padding: 10px 20px;
+      // margin: 0 10px;
+      border-bottom: 1px solid #eee;
+      background-color: #fff;
+      .avatar{
+        float: left;
+        width: 50px;
+      }
+      .title{
+        margin-left: 30px;
+      }
     }
   }
 </style>

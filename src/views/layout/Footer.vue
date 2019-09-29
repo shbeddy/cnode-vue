@@ -1,5 +1,5 @@
 <template>
-    <h1>这是footer组件</h1>
+    <p>CNode社区</p>
 </template>
 
 <script>
@@ -11,5 +11,7 @@ export default {
 <style>
     .layout-footer-center{
         text-align: center;
+        background-color: #eee;
+        line-height: 30px;
     }
 </style>

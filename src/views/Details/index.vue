@@ -1,6 +1,6 @@
 <template>
     <div class="detail-wrap">
-        <Card dis-hover="true">
+        <Card dis-hover>
             <div class="title" slot="title">
                 <h3>{{res.title}}</h3>
                 <router-link :to="`/user/${res.author.loginname}`">{{res.author.loginname}}</router-link>
@@ -8,7 +8,7 @@
             </div>
             <div v-html="this.res.content"></div>
         </Card>
-        <Card dis-hover="true" :style="{marginTop:'15px'}">
+        <Card dis-hover :style="{marginTop:'15px'}">
             <div slot="title">
                 <p>{{res.replies.length}}回复</p>
             </div>
